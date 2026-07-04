@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MFL Moneyball Database</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>MFL Moneyball Database</h1>
+    <p>Search and filter players using career totals and per 90 stats.</p>
+  </header>
+
+  <section class="filters">
+    <input id="searchName" type="text" placeholder="Search player name">
+
+    <select id="positionFilter">
+      <option value="">All Positions</option>
+      <option value="GK">GK</option>
+      <option value="CB">CB</option>
+      <option value="LB">LB</option>
+      <option value="RB">RB</option>
+      <option value="CDM">CDM</option>
+      <option value="CM">CM</option>
+      <option value="CAM">CAM</option>
+      <option value="LM">LM</option>
+      <option value="RM">RM</option>
+      <option value="LW">LW</option>
+      <option value="RW">RW</option>
+      <option value="CF">CF</option>
+      <option value="ST">ST</option>
+    </select>
+
+    <input id="minOverall" type="number" placeholder="Min OVR">
+    <input id="maxOverall" type="number" placeholder="Max OVR">
+    <input id="minAge" type="number" placeholder="Min Age">
+    <input id="maxAge" type="number" placeholder="Max Age">
+    <input id="minMatches" type="number" placeholder="Min Matches">
+
+    <select id="sortBy">
+      <option value="rating_per_90">Rating / 90</option>
+      <option value="goals_per_90">Goals / 90</option>
+      <option value="assists_per_90">Assists / 90</option>
+      <option value="chances_created_per_90">Chances Created / 90</option>
+      <option value="dribbles_per_90">Dribbles / 90</option>
+      <option value="defensive_duels_won_per_90">Defensive Duels / 90</option>
+      <option value="overall">Overall</option>
+      <option value="matches">Matches</option>
+      <option value="minutes">Minutes</option>
+    </select>
+
+    <button id="applyFilters">Apply Filters</button>
+  </section>
+
+  <section class="summary">
+    <span id="status">Loading...</span>
+  </section>
+
+  <main>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Pos</th>
+            <th>Age</th>
+            <th>OVR</th>
+            <th>Club</th>
+            <th>Matches</th>
+            <th>Minutes</th>
+            <th>Goals/90</th>
+            <th>Assists/90</th>
+            <th>Chances/90</th>
+            <th>Dribbles/90</th>
+            <th>Def Duels/90</th>
+            <th>Rating/90</th>
+          </tr>
+        </thead>
+        <tbody id="playersBody"></tbody>
+      </table>
+    </div>
+
+    <div class="pagination">
+      <button id="prevPage">Previous</button>
+      <span id="pageInfo">Page 1</span>
+      <button id="nextPage">Next</button>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
