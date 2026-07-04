@@ -1,7 +1,7 @@
 const SUPABASE_URL = "https://qtlibnfilwacadecnqej.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_kpQHC4eiD7-FDKIjRqjDGg_PgKTkd-p";
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 let page = 0;
 const pageSize = 50;
@@ -54,7 +54,7 @@ async function loadPlayers() {
 
   const sortBy = els.sortBy.value || "rating_per_90";
 
-  let query = supabase
+  let query = supabaseClient
     .from("mfl_moneyball_player_view")
     .select("*", { count: "exact" })
     .range(from, to)
