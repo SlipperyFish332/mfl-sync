@@ -1,0 +1,5 @@
+.env
+mfl-sync-cursor.json
+node_modules
+.DS_Store
+
