@@ -15,8 +15,8 @@ jobs:
       SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
       CAREER_BATCH_SIZE: 25
       CAREER_CONCURRENCY: 1
-      REQUEST_DELAY_MS: 1000
-      MAX_BATCHES_PER_RUN: 20
+      REQUEST_DELAY_MS: 750
+      MAX_BATCHES_PER_RUN: 40
 
     steps:
       - name: Checkout repo
